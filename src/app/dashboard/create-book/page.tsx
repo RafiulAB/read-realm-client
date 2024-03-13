@@ -149,7 +149,7 @@ export default function Create() {
         name="desc"
           value={formData.desc}
           onChange={handleChange}
-        id="" cols="95" rows="4"
+        id="" cols={95} rows={4}
         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
         >
           Description
