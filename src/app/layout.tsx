@@ -7,6 +7,7 @@ import { AuthProvider } from "@/context/authContext";
 import { CartProvider } from "@/context/cartContext";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import { ReactNode } from "react";
 
 
 
@@ -20,8 +21,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: any;
+}:  Readonly<{
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">

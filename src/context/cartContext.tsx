@@ -1,5 +1,5 @@
 'use client'
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import React, { ReactNode, createContext, useCallback, useContext, useEffect, useState } from 'react';
 import { Book } from '@/utils';
 import { toast } from 'react-toastify';
 
@@ -14,7 +14,7 @@ type CartContextType = {
 
 const CartContext = createContext<CartContextType | null>(null)
 
-export const CartProvider: React.FC = ({ children }:any) => {
+export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [cart, setCart] = useState<CartItem[] | null>([]);
    
   useEffect(()=>{
