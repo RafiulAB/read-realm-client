@@ -44,7 +44,9 @@ export default function Payment() {
           return res.json().then(json => Promise.reject(json));
         })
         .then(({ url }) => {
-          window.location = url;
+          if(typeof window !== undefined){
+            window.location = url;
+          }
         })
         .catch(e => {
           console.log(e.error);
