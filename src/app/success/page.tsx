@@ -28,7 +28,9 @@ const Success = () => {
                 link.setAttribute('download', 'book.pdf'); // You may want to extract filename from the download link
                 document.body.appendChild(link);
                 link.click();
-                link.parentNode.removeChild(link);
+                if (link && link.parentNode) {
+                  link.parentNode.removeChild(link);
+                }
             })
             .catch(error => console.error('Error downloading file: ', error));
     };
