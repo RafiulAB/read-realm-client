@@ -2,7 +2,7 @@
 import { BookCardProps } from "@/components/bookCard";
 import Loading from "@/components/loading";
 import Paginations from "@/components/pagination";
-import Pagination from "@/components/pagination";
+
 import { Book } from "@/utils";
 import { bookGetFunc } from "@/utils/apiCalls";
 import Link from "next/link";
