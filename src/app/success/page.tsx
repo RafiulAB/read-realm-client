@@ -19,22 +19,22 @@ const Success = () => {
 
       // handle download
       const handleDownload = (downloadLink:any) => {
-        fetch(downloadLink)
+        if (typeof window !== 'undefined') {
+          fetch(downloadLink)
             .then(response => response.blob())
             .then(blob => {
-                const url = window.URL.createObjectURL(new Blob([blob]));
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute('download', 'book.pdf'); // You may want to extract filename from the download link
-                document.body.appendChild(link);
-                link.click();
-                link.addEventListener('click', () => {
-                  if (link.parentNode) {
-                    link.parentNode.removeChild(link);
-                  }
-                });
+              const url = window.URL.createObjectURL(new Blob([blob]));
+              const link = document.createElement('a');
+              link.href = url;
+              link.setAttribute('download', 'book.pdf'); // You may want to extract filename from the download link
+              document.body.appendChild(link);
+              link.click();
+              if (link.parentNode) {
+                link.parentNode.removeChild(link);
+              }
             })
             .catch(error => console.error('Error downloading file: ', error));
+        }
     };
 
   return (
