@@ -10,7 +10,7 @@ import { useContext, useEffect, useState } from "react";
 
 
 export default function SingleBook({ params }: { params: { _id: string } }) {
-  const [book, setBook] = useState<Book[]>([]);
+  const [book, setBook] = useState<any>([]);
   const [relatedBooks, setRelatedBooks] = useState<Book[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [isBookInCart, setIsBookInCart]= useState(false);

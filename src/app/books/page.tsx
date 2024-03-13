@@ -9,8 +9,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoIosArrowDropdown } from "react-icons/io";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import { RxDropdownMenu } from "react-icons/rx";
 
 const Books: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
