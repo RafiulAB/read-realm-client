@@ -26,30 +26,31 @@ export default function Payment() {
   };
 
   const checkout = () => {
-    fetch("https://read-realm-server.vercel.app/auth/payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      mode: "cors",
-      body: JSON.stringify({
-        items: [
-          { id: 1, quantity: quantity, price: itemPrice, name: itemName }
-        ]
+    if (typeof window !== 'undefined') {
+      fetch("https://read-realm-server.vercel.app/auth/payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        mode: "cors",
+        body: JSON.stringify({
+          items: [
+            { id: 1, quantity: quantity, price: itemPrice, name: itemName }
+          ]
+        })
       })
-    })
-      .then(res => {
-        if (res.ok) return res.json();
-        return res.json().then(json => Promise.reject(json));
-      })
-      .then(({ url }) => {
-        window.location = url;
-      })
-      .catch(e => {
-        console.log(e.error);
-      });
+        .then(res => {
+          if (res.ok) return res.json();
+          return res.json().then(json => Promise.reject(json));
+        })
+        .then(({ url }) => {
+          window.location = url;
+        })
+        .catch(e => {
+          console.log(e.error);
+        });
+    }
   };
-
  
   return (
     <div className='w-full mx-auto'>
