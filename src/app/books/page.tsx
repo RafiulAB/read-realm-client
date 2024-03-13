@@ -12,7 +12,7 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxDropdownMenu } from "react-icons/rx";
 
-const Books: React.FC<BookCardProps> = () => {
+const Books: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("");
