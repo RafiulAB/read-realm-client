@@ -4,7 +4,7 @@ export interface Book {
     author: string;
     category:string,
     desc: string;
-    price: string,
+    price: number,
     image: string;
     file: string;
     // other book properties...
