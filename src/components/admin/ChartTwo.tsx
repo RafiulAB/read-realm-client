@@ -1,76 +1,14 @@
-import { ApexOptions } from 'apexcharts';
-import React, { useState } from 'react';
-import ReactApexChart from 'react-apexcharts';
+import React, { useState, useEffect } from 'react';
 
-const options: ApexOptions = {
-  colors: ['#3C50E0', '#80CAEE'],
-  chart: {
-    fontFamily: 'Satoshi, sans-serif',
-    type: 'bar',
-    height: 335,
-    stacked: true,
-    toolbar: {
-      show: false,
-    },
-    zoom: {
-      enabled: false,
-    },
-  },
-
-  responsive: [
-    {
-      breakpoint: 1536,
-      options: {
-        plotOptions: {
-          bar: {
-            borderRadius: 0,
-            columnWidth: '25%',
-          },
-        },
-      },
-    },
-  ],
-  plotOptions: {
-    bar: {
-      horizontal: false,
-      borderRadius: 0,
-      columnWidth: '25%',
-      borderRadiusApplication: 'end',
-      borderRadiusWhenStacked: 'last',
-    },
-  },
-  dataLabels: {
-    enabled: false,
-  },
-
-  xaxis: {
-    categories: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-  },
-  legend: {
-    position: 'top',
-    horizontalAlign: 'left',
-    fontFamily: 'Satoshi',
-    fontWeight: 500,
-    fontSize: '14px',
-
-    markers: {
-      radius: 99,
-    },
-  },
-  fill: {
-    opacity: 1,
-  },
-};
-
-interface ChartTwoState {
-  series: {
-    name: string;
-    data: number[];
-  }[];
+// Importing ReactApexChart conditionally
+let ReactApexChart:any;
+if (typeof window !== 'undefined') {
+    ReactApexChart = require('react-apexcharts').default;
 }
 
+// Rest of your component code
 const ChartTwo: React.FC = () => {
-  const [state, setState] = useState<ChartTwoState>({
+  const [state, setState] = useState({
     series: [
       {
         name: 'Sales',
@@ -82,13 +20,16 @@ const ChartTwo: React.FC = () => {
       },
     ],
   });
-  
+
   const handleReset = () => {
     setState((prevState) => ({
       ...prevState,
     }));
   };
-  handleReset;  
+
+  useEffect(() => {
+    handleReset(); // Ensure the initial state is set properly
+  }, []);
 
   return (
     <div className="col-span-12 p-6 rounded-sm border border-stroke bg-white p-7.5 shadow-default dark:border-strokedark dark:bg-boxdark xl:col-span-4">
@@ -134,12 +75,69 @@ const ChartTwo: React.FC = () => {
 
       <div>
         <div id="chartTwo" className="-ml-5 -mb-9">
-          <ReactApexChart
-            options={options}
-            series={state.series}
-            type="bar"
-            height={350}
-          />
+          {ReactApexChart && (
+            <ReactApexChart
+              options={{
+                colors: ['#3C50E0', '#80CAEE'],
+                chart: {
+                  fontFamily: 'Satoshi, sans-serif',
+                  type: 'bar',
+                  height: 335,
+                  stacked: true,
+                  toolbar: {
+                    show: false,
+                  },
+                  zoom: {
+                    enabled: false,
+                  },
+                },
+                responsive: [
+                  {
+                    breakpoint: 1536,
+                    options: {
+                      plotOptions: {
+                        bar: {
+                          borderRadius: 0,
+                          columnWidth: '25%',
+                        },
+                      },
+                    },
+                  },
+                ],
+                plotOptions: {
+                  bar: {
+                    horizontal: false,
+                    borderRadius: 0,
+                    columnWidth: '25%',
+                    borderRadiusApplication: 'end',
+                    borderRadiusWhenStacked: 'last',
+                  },
+                },
+                dataLabels: {
+                  enabled: false,
+                },
+                xaxis: {
+                  categories: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                },
+                legend: {
+                  position: 'top',
+                  horizontalAlign: 'left',
+                  fontFamily: 'Satoshi',
+                  fontWeight: 500,
+                  fontSize: '14px',
+                  markers: {
+                    radius: 99,
+                  },
+                },
+                fill: {
+                  opacity: 1,
+                },
+              }}
+              series={state.series}
+              type="bar"
+              height={350}
+            />
+          )}
         </div>
       </div>
     </div>
