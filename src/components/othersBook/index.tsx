@@ -13,7 +13,7 @@ const OthersBook: React.FC = () => {
             try {
                 const response = await fetch('https://read-realm-server.vercel.app/books/get-all')
                 const result:any = await response.json();
-                const data = result.books
+                const data = result.books.splice(2,15)
                setBooks(data)
                setLoading(false)
             } catch (error) {
