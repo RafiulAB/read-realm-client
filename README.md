@@ -2,7 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Startedfg
 ##r
-
+**This text will be bold**
+__This text will also be bold__
 First, run the development server:
 
 ```bash
