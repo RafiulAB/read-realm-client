@@ -2,9 +2,9 @@
 
 READ REALM is an ebook selling website designed to provide a seamless experience for users to discover, purchase, and manage ebooks. Here's a brief overview of its key features:
 
-- **Live Site:** [[Link to Live Site]](https://read-realm.vercel.app/)
+- **Live Site:** [https://read-realm.vercel.app/]
 - **Client Site:** [(https://github.com/RafiulAB/read-realm-client)]
-- **Server Site:** [[Link to Server Site](https://github.com/RafiulAB/read-realm-server)]
+- **Server Site:** [(https://github.com/RafiulAB/read-realm-server)]
 
 ## Key Features
 
