@@ -116,7 +116,7 @@ export default function ManageProduct() {
                   <div className=" p-2">
                     <h3 className="font-medium">{book.name}</h3>
                   </div>
-                  <div className="flex flex-wrap justify-between px-2">
+                  <div className="flex flex-wrap justify-between px-1">
                     <button className="text-white bg-blue-800 p-2 rounded-md hover:bg-blue-600">
                      
                       <a href={`/dashboard/manage-books/${book._id}`}> update</a>
